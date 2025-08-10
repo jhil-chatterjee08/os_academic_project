@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Management Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>💾 Memory Management Visualization</h1>
+
+        <fieldset class="memory-section">
+            <legend><h2>🔧 Initialize Memory Blocks</h2></legend>
+            <label for="memoryBlockSize">Memory Block Size (KB):</label>
+            <input type="number" id="memoryBlockSize" placeholder="Enter block size" min="1" required>
+            <button id="addMemoryBlockBtn" class="memoryBlock-btn">Add Block</button>
+            <p id="memoryError" class="error-msg">Please enter a valid memory block size.</p>
+            <div id="memoryBlockList"></div>
+        </fieldset>
+
+        <fieldset class="input-section">
+            <legend><h2>🧩 Input Process Sizes</h2></legend>
+            <label for="processSize">Process Size (KB):</label>
+            <input type="number" id="processSize" placeholder="Enter process size" min="1" required>
+            <button id="addProcessBtn" class="Process-btn">Add Process</button>
+            <p id="processError" class="error-msg">Please enter a valid process size.</p>
+            <div id="processList"></div>
+        </fieldset>
+
+        <fieldset class="strategy-section">
+            <legend><h2>🧠 Allocation Strategy</h2></legend>
+            <label for="strategySelect">Select Strategy:</label>
+            <select id="strategySelect">
+                <option value="" disabled selected>-- Choose Allocation Strategy --</option>
+                <option value="firstFit">First Fit</option>
+                <option value="bestFit">Best Fit</option>
+                <option value="worstFit">Worst Fit</option>
+            </select>
+            <div class="button-group">
+                <button id="calculateBtn" class="calculate-btn">Calculate Allocation</button>
+                <button id="deallocateBtn" class="deallocate-btn">Deallocate All</button>
+            </div>
+        </fieldset>
+
+        <div class="clear-section">
+            <button id="clearBtn" class="clear-btn">🔄 Clear All Inputs</button>
+        </div>
+
+        <section class="visualization-section">
+            <h2>📊 Memory Allocation Visualization</h2>
+            <canvas id="memoryCanvas" width="600" height="300" aria-label="Memory visualization chart"></canvas>
+            <p id="currentStrategy"></p>
+        </section>
+    </div>
+
+    <script src="logic.js"></script>
+</body>
+</html>
